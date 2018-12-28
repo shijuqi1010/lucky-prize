@@ -1,33 +1,36 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import {
-  lottery,
-  lotteryRecord
-} from './router_lottery'
+import lottery from '@/components/lottery'
+import lotteryRecord from '@/components/lotteryRecord'
+
 Vue.use(Router)
+
 const router = new Router({
-  mode: 'hash',
-  routes: [{
-    path: '/index', // 首页
-    name: 'index',
-    component (resolve) {
-      require.ensure(['../view/index/index.vue'], () => {
-        resolve(require('../view/index/index.vue'))
-      })
-    }
+  routes: [
+    {
+    path: '/',
+    name: 'lottery',
+    meta: {
+      title: '幸运九宫格'
+    },
+    component: lottery
+  },
+    {
+    path: '/lottery',
+    name: 'lottery',
+    meta: {
+      title: '幸运九宫格'
+    },
+    component: lottery
   },
   {
-    path: '/', // 首页
-    name: 'index',
-    component (resolve) {
-      require.ensure(['../view/index/index.vue'], () => {
-        resolve(require('../view/index/index.vue'))
-      })
-    }
-  },
-    /* 抽奖 */
-  lottery, lotteryRecord
-  ]
+    path: '/lotteryRecord',
+    name: 'lotteryRecord',
+    meta: {
+      title: '幸运九宫格中奖纪录'
+    },
+    component: lotteryRecord
+  }]
 })
 
 export default router

@@ -1,24 +1,24 @@
 <template>
   <div class="wap" v-title="'抽奖'" ref="wap">
     <div class="banner">
-      <img class="bannerImg" src="../../assets/img/lottery/banner.png" alt="">
+      <img class="bannerImg" src="../assets/img/lottery/banner.png" alt="">
       <div class="prizeInfoBtn" @click="lotteryRecord" v-show="hasRecord">
-        <img class="prizeInfoBtnImg" src="../../assets/img/lottery/prizeInfo.png" alt="">
+        <img class="prizeInfoBtnImg" src="../assets/img/lottery/prizeInfo.png" alt="">
       </div>
       <div class="priceChanceBtn">
         您有{{remainingTimes}}次抽奖机会
       </div>
       <div class="whiteBar1 whiteBar">
-        <img src="../../assets/img/lottery/whiteBar.png" alt="">
+        <img src="../assets/img/lottery/whiteBar.png" alt="">
       </div>
       <div class="whiteBar2 whiteBar">
-        <img src="../../assets/img/lottery/whiteBar.png" alt="">
+        <img src="../assets/img/lottery/whiteBar.png" alt="">
       </div>
       <div class="whiteBar3 whiteBar">
-        <img src="../../assets/img/lottery/whiteBar.png" alt="">
+        <img src="../assets/img/lottery/whiteBar.png" alt="">
       </div>
       <div class="whiteBar4 whiteBar">
-        <img src="../../assets/img/lottery/whiteBar.png" alt="">
+        <img src="../assets/img/lottery/whiteBar.png" alt="">
       </div>
     </div>
     <div class="box">
@@ -28,11 +28,11 @@
     </div>
     <div class="prizers">
       <div class="prizeBar">
-        <img src="../../assets/img/lottery/prizers.png" alt="">
+        <img src="../assets/img/lottery/prizers.png" alt="">
       </div>
       <div class="prizer">
         <div class="prizeIcon">
-          <img src="../../assets/img/lottery/prizeIcon.png" alt="">
+          <img src="../assets/img/lottery/prizeIcon.png" alt="">
         </div>
         <div class="prizerList" id="prizerList">
           <ul id="prizerList1">
@@ -49,11 +49,11 @@
     <div class="info">
       <div class="title">
         <div class="squire squire1">
-          <img src="../../assets/img/lottery/three.png" alt="">
+          <img src="../assets/img/lottery/three.png" alt="">
         </div>
         <span>奖品说明</span>
         <div class="squire squire2">
-          <img src="../../assets/img/lottery/three.png" alt="">
+          <img src="../assets/img/lottery/three.png" alt="">
         </div>
       </div>
       <div class="infoContent">
@@ -65,11 +65,11 @@
     <div class="info">
       <div class="title">
         <div class="squire squire1">
-          <img src="../../assets/img/lottery/three.png" alt="">
+          <img src="../assets/img/lottery/three.png" alt="">
         </div>
         <span>活动说明</span>
         <div class="squire squire2">
-          <img src="../../assets/img/lottery/three.png" alt="">
+          <img src="../assets/img/lottery/three.png" alt="">
         </div>
       </div>
       <div class="infoContent">
@@ -82,20 +82,20 @@
     <div class="massage" v-show="prizeInfoShow" @touchmove="touchMove($event)">
       <div class="noPrize" v-if="noPrizeShow">
         <div class="close" @click="close()">
-          <img src="../../assets/img/lottery/close.png" alt="">
+          <img src="../assets/img/lottery/close.png" alt="">
         </div>
         <p>很遗憾，您没有中奖</p>
         <div class="xiaofu">
-          <img src="../../assets/img/lottery/noprizeXF.png" alt="">
+          <img src="../assets/img/lottery/noprizeXF.png" alt="">
         </div>
         <div class="btn" @click="goIndex">
           去逛逛吧
         </div>
       </div>
-      <img src="../../assets/img/lottery/circleLight.png" class="circleLight" v-if="havePrizeShow" alt="">
+      <img src="../assets/img/lottery/circleLight.png" class="circleLight" v-if="havePrizeShow" alt="">
       <div class="havePrize" v-if="havePrizeShow">
         <div class="oneBar">
-          <img src="../../assets/img/lottery/yellowCycle.png" />
+          <img src="../assets/img/lottery/yellowCycle.png" />
         </div>
         <p>恭喜您抽中{{prizeName}}</p>
         <div class="proImg">
@@ -107,10 +107,10 @@
       </div>
       <div class="haveLottery" v-if="haveLottery">
         <div class="close" @click="close()">
-          <img src="../../assets/img/lottery/close.png" alt="">
+          <img src="../assets/img/lottery/close.png" alt="">
         </div>
         <div class="xiaofu">
-          <img src="../../assets/img/lottery/receivedXF1.png" alt="">
+          <img src="../assets/img/lottery/receivedXF1.png" alt="">
         </div>
         <p>您已经抽过奖啦，不要太贪心哦！</p>
         <div class="btn" @click="close()">
@@ -185,7 +185,7 @@ export default {
   methods: {
 
     get () {
-      this.$http.get('../../../static/data/lotteryInfo.json').then((myData) => {
+      this.$http.get('../static/data/lotteryInfo.json').then((myData) => {
         // console.log(myData)
         let res = myData.data
         if (res.success) {
@@ -324,7 +324,7 @@ export default {
               if (this.startStatus === 1) { // 活动开始
                 this.clickFlage = false// 不能点击
                 this.timer1 = setInterval(this.move, 100)
-                this.$http.get('../../../static/data/prizeInfo.json').then((myData) => {
+                this.$http.get('../static/data/prizeInfo.json').then((myData) => {
                   let res = myData.data
                   console.log(res)
                   if (res.success) {
@@ -492,7 +492,7 @@ export default {
     background: linear-gradient(white, white) padding-box,
     repeating-linear-gradient(45deg, #FFDE00 0%, #FFDE00 4.6%, #3EAAFF 0, #3EAAFF 10%) 0 / 6.9rem 6.9rem;
     div {
-      // background: url('../../assets/img/lottery/border.png') no-repeat;
+      // background: url('../assets/img/lottery/border.png') no-repeat;
       background-size: 100%;
       float: left;
       width: 1.8rem;
@@ -503,7 +503,7 @@ export default {
       &:nth-child(3n) {
         margin-right: 0;
       } // &:nth-child(5) {
-      //   background: url('../../assets/img/lottery/prizeBtn.png') no-repeat!important;
+      //   background: url('../assets/img/lottery/prizeBtn.png') no-repeat!important;
       //   background-size: 100%!important;
       // }
       &:nth-child(7),
@@ -646,7 +646,7 @@ export default {
       ul {
         margin-left: 0.3rem;
         li {
-          //  list-style-image: url('../../assets/img/lottery/point.png');
+          //  list-style-image: url('../assets/img/lottery/point.png');
           list-style-type: disc;
           list-style-position: outside;
           font-size: 0.26rem;
@@ -719,7 +719,7 @@ export default {
         width: 3.7rem;
         height: 0.9rem;
         margin: 0 auto;
-        background: url("../../assets/img/lottery/btn.png") no-repeat;
+        background: url("../assets/img/lottery/btn.png") no-repeat;
         background-size: 100%;
         font-size: 0.36rem;
         color: #fff;
@@ -767,7 +767,7 @@ export default {
         width: 3.7rem;
         height: 0.9rem;
         margin: 0 auto;
-        background: url("../../assets/img/lottery/btn.png") no-repeat;
+        background: url("../assets/img/lottery/btn.png") no-repeat;
         background-size: 100%;
 
         font-size: 0.36rem;
@@ -811,7 +811,7 @@ export default {
       position: absolute;
       top: 2.42rem;
       left: 1.1rem;
-      background: #fff url('../../assets/img/lottery/prizinig.png') no-repeat;
+      background: #fff url('../assets/img/lottery/prizinig.png') no-repeat;
       background-position: top center;
       background-size: 5.3rem 1.42rem;
       .oneBar {
@@ -846,7 +846,7 @@ export default {
         width: 3.7rem;
         height: 0.9rem;
         margin: 0 auto;
-        background: url("../../assets/img/lottery/btn.png") no-repeat;
+        background: url("../assets/img/lottery/btn.png") no-repeat;
         background-size: 100%;
         text-align: center;
         a {

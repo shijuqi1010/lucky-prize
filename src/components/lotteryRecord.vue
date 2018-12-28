@@ -1,22 +1,22 @@
 <template>
   <div class="wap" v-title="'中奖纪录'" ref="wap" :class="{'blue':!ordered&&prizeType!=1,'bottomBlue':ordered&&prizeType!=1}">
     <div class="top">
-      <img class="flower1" src="../../assets/img/lottery/flowers/01.png" />
-      <img class="flower2" src="../../assets/img/lottery/flowers/02.png" />
-      <img class="flower3" src="../../assets/img/lottery/flowers/03.png" />
-      <img class="flower4" src="../../assets/img/lottery/flowers/04.png" />
-      <img class="flower5" src="../../assets/img/lottery/flowers/05.png" />
-      <img class="flower6" src="../../assets/img/lottery/flowers/06.png" />
-      <img class="flower7" src="../../assets/img/lottery/flowers/07.png" />
+      <img class="flower1" src="../assets/img/lottery/flowers/01.png" />
+      <img class="flower2" src="../assets/img/lottery/flowers/02.png" />
+      <img class="flower3" src="../assets/img/lottery/flowers/03.png" />
+      <img class="flower4" src="../assets/img/lottery/flowers/04.png" />
+      <img class="flower5" src="../assets/img/lottery/flowers/05.png" />
+      <img class="flower6" src="../assets/img/lottery/flowers/06.png" />
+      <img class="flower7" src="../assets/img/lottery/flowers/07.png" />
       <div class="banner">
-        <img src="../../assets/img/lottery/prizeDetailBanner.png" alt="">
+        <img src="../assets/img/lottery/prizeDetailBanner.png" alt="">
       </div>
       <!-- <p class="level">{{level|levelTurn}}</p> -->
       <div class="proWap">
         <p class="title">
-          <img src="../../assets/img/lottery/prizeDetailIcon.png" class="left" />
+          <img src="../assets/img/lottery/prizeDetailIcon.png" class="left" />
           <span>恭喜您获得{{lotteryName}}</span>
-          <img src="../../assets/img/lottery/prizeDetailIcon.png" class="right" />
+          <img src="../assets/img/lottery/prizeDetailIcon.png" class="right" />
         </p>
         <img class="proImg" :src="lotteryUrl" alt="">
       </div>
@@ -24,11 +24,11 @@
     <div class="middle">
       <div class="title" v-if="prizeType==1">
         <div class="squire squire1">
-          <img src="../../assets/img/lottery/three.png" alt="">
+          <img src="../assets/img/lottery/three.png" alt="">
         </div>
         <span>收货信息</span>
         <div class="squire squire2">
-          <img src="../../assets/img/lottery/three.png" alt="">
+          <img src="../assets/img/lottery/three.png" alt="">
         </div>
       </div>
     </div>
@@ -62,10 +62,10 @@
     <div class="massage" v-show="prizeInfoShow" @touchmove="touchMove($event)">
       <div class="haveLottery" v-if="successGet">
         <div class="close" @click="close()">
-          <img src="../../assets/img/lottery/close.png" alt="">
+          <img src="../assets/img/lottery/close.png" alt="">
         </div>
         <div class="xiaofu">
-          <img src="../../assets/img/lottery/receivedXF1.png" alt="">
+          <img src="../assets/img/lottery/receivedXF1.png" alt="">
         </div>
         <p>领取成功</p>
         <div class="btnTop" @click="close()">
@@ -114,7 +114,7 @@ export default {
   },
   methods: {
     get () {
-      this.$http.get('../../../static/data/lotteryRecord.json').then((myData) => {
+      this.$http.get('../static/data/lotteryRecord.json').then((myData) => {
         let res = myData.data
         console.log(res)
         if (res.success) {
@@ -450,7 +450,7 @@ export default {
     font-size: 0.36rem;
     font-weight: 600;
     color: #fff;
-    background: #4285f4 url('../../assets/img/lottery/concernBtn.png') no-repeat;
+    background: #4285f4 url('../assets/img/lottery/concernBtn.png') no-repeat;
     background-size: 6.7rem 1rem;
     background-position: center;
     position: relative;
@@ -539,7 +539,7 @@ export default {
       font-size: 0.24rem;
       color: #fff;
       padding-left: 0.4rem;
-      background: url('../../assets/img/lottery/tip.png') no-repeat left center;
+      background: url('../assets/img/lottery/tip.png') no-repeat left center;
       background-size: 0.27rem 0.27rem;
     }
     .btn {
@@ -551,7 +551,7 @@ export default {
       font-size: 0.36rem;
       font-weight: 600;
       color: #fff;
-      background: url('../../assets/img/lottery/concernBtn.png') no-repeat;
+      background: url('../assets/img/lottery/concernBtn.png') no-repeat;
       background-size: 100% 100%;
     }
   }
@@ -603,7 +603,7 @@ export default {
         width: 3.7rem;
         height: 0.9rem;
         margin: 0 auto;
-        background: url("../../assets/img/lottery/btn.png") no-repeat;
+        background: url("../assets/img/lottery/btn.png") no-repeat;
         background-size: 100%;
 
         font-size: 0.36rem;
